@@ -1,0 +1,18 @@
+groups:
+
+- name: security_alerts
+
+  rules:
+
+  - alert: TooManyFailedLogins
+
+    expr: failed_login_total > 5
+
+    for: 10s
+
+    labels:
+      severity: critical
+
+    annotations:
+      summary: "Too many failed login attempts"
+      description: "More than 5 failed logins detected"
